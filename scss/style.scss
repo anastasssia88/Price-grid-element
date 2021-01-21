@@ -1,0 +1,179 @@
+@import 'config';
+@import 'flex';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $bg-color;
+
+    font-family: 'Karla', sans-serif;
+    font-size: $base-font-size;
+    line-height: 1.6;
+}
+
+
+// GRID CONTAINER
+
+.grid-container {
+    margin: 4em 2em;
+    box-shadow: 0px 0px 21px 3px rgba(201,201,201,0.54);
+    background-color: white;
+    border-radius: $standard-radius;
+
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: 
+    "itemOne"
+    "itemTwo"
+    "itemThree";
+}
+
+
+@media (min-width:700px) {
+    main {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+
+    .grid-container {
+        width: 550px;
+        border-radius: $standard-radius;
+        margin: 10em;
+        
+
+        grid-template-columns: auto auto;
+        grid-template-rows: auto auto;
+        grid-template-areas: 
+        "itemOne itemOne"
+        "itemTwo itemThree";
+    }
+    
+}
+
+
+// GRID ITEMS
+%grid-item {
+    padding: 24px;
+}
+
+.grid-item-one {
+    @extend %grid-item;
+    grid-area: itemOne;
+    background: white;
+
+    border-top-left-radius: $standard-radius;
+    border-top-right-radius: $standard-radius;
+
+    h3{
+        color:$primary-color;
+        margin-bottom: $standard-margin;
+        font-size: $md-font-size;
+        font-weight: 700;
+    }
+
+    .highlighted-text{
+        color: $secondary-color;
+        margin-bottom: $standard-margin;
+        font-size: $base-font-size;
+        font-weight: 700;
+    }
+
+    p{
+        color: $text-color;
+    }
+    
+}
+
+
+.grid-item-two {
+    @extend %grid-item;
+    grid-area: itemTwo;
+    background: $primary-color;
+    color: hsl(204, 43%, 93%);
+
+    align-content: space-between;
+
+    .small-heading {
+        font-size: $md-font-size;
+        margin-bottom: $standard-margin;
+        font-weight: 700;
+    }
+
+    button {
+        background-color: $secondary-color;
+        border: 2px solid $secondary-color;
+        color: white;
+        border-radius: 4px;
+        box-shadow: 0px 5px 11px -8px rgba(0,0,0,0.76);
+
+        width: 100%;
+        padding: 10px 10px;
+        margin-top: 20px;
+
+        transition: all 0.5s ease;
+
+    }
+
+    button:hover {
+        background-color: darken($secondary-color, 10%);
+        border: 2px solid darken($secondary-color, 10%);
+
+    }
+
+}
+
+
+.grid-item-three {
+    @extend %grid-item;
+    grid-area: itemThree;
+    background: lighten($primary-color, 10%);
+    color: hsl(204, 43%, 93%);
+    font-size: 12px;
+
+    border-bottom-left-radius: $standard-radius;
+    border-bottom-right-radius: $standard-radius;
+
+    .small-heading {
+        font-size: $md-font-size;
+        margin-bottom: $standard-margin;
+        font-weight: 700;
+    }
+
+}
+
+footer {
+    color: $primary-color;
+    margin: 16px;
+    text-align: center;
+
+    a{
+        color: rgb(78, 78, 78);
+    }
+    a:hover{
+        color: rgb(68, 68, 68);
+    }
+}
+
+
+@media (min-width:700px) {
+    .grid-item-one{
+        border-top-left-radius: $standard-radius;
+        border-top-right-radius: $standard-radius;
+    }
+
+    .grid-item-two{
+        border-bottom-left-radius: $standard-radius;
+    }
+
+    .grid-item-three{
+        border-bottom-right-radius: $standard-radius;
+        border-bottom-left-radius: 0px;
+    }
+    
+}

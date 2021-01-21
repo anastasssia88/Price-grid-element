@@ -1,0 +1,16 @@
+.flex-container {
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    margin-top: -4px;
+
+    .price {
+        font-size: 28px;
+    }
+
+    .period-of-time {
+        color: rgba(252, 252, 252, 0.527);
+        align-self: center;
+        margin-left: 6px;
+    }
+}
